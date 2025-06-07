@@ -57,13 +57,7 @@ public class JudgeService {
 
         String status;
         switch (codeCompiler.getAsGenericType()) {
-            case "javac-17" -> {
-                status = runPython(script, submission);
-            }
             case "python3.10" -> {
-                status = runPython(script, submission);
-            }
-            case "g++-11" -> {
                 status = runPython(script, submission);
             }
             default -> {

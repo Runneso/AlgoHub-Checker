@@ -5,7 +5,7 @@ import ru.runneso.checker.domain.exceptions.ValidationException;
 import java.util.List;
 
 public class CodeCompiler extends BaseValueObject<String>{
-    private static final List<String> ALLOWED_COMPILERS = List.of("g++-11", "python3.10", "javac-17");
+    private static final List<String> ALLOWED_COMPILERS = List.of("python3.10");
 
     public CodeCompiler(String value){
         super(value);
@@ -27,9 +27,7 @@ public class CodeCompiler extends BaseValueObject<String>{
 
     public String getExtension(){
         return switch (getAsGenericType()) {
-            case "javac-17" -> ".java";
             case "python3.10" -> ".py";
-            case "g++-11" -> ".cpp";
             default -> null;
         };
     }
