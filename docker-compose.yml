@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  checker:
+    build: .
+    container_name: checker
+    environment:
+      AWS_ENDPOINT_URL: http://localhost:4566
+      AWS_REGION: us-east-1
+
+      SPRING_PROFILES_ACTIVE: docker
+    volumes:
+      - checker-tmp:/tmp/checker
+    restart: unless-stopped
+
+volumes:
+  checker-tmp:
